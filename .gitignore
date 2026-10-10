@@ -1,0 +1,51 @@
+# Operating-system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# STM32CubeIDE and Eclipse workspace metadata
+.metadata/
+.settings/
+*.log
+
+# Common embedded build output
+Debug/
+Release/
+build/
+*/Debug/
+*/Release/
+*/build/
+*.o
+*.d
+*.elf
+*.map
+*.su
+*.cyclo
+*.lst
+*.out
+*.bin
+*.hex
+*.axf
+*.ioc.bak
+
+# Tool-generated simulator and intermediate output
+TouchGFX/build/
+TouchGFX/generated/
+TouchGFX/simulator/
+*/TouchGFX/build/
+*/TouchGFX/generated/
+*/TouchGFX/simulator/
+*.vcxproj.user
+
+# Local IDE and tool state
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*~
+backup_*.ioc

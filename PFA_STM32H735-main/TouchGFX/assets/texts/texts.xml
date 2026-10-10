@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.26.1">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1">
+      <Text Id="AlphaMode" Alignment="Center" TypographyId="Mode">
+        <Translation Language="GB">123</Translation>
+      </Text>
+      <Text Id="NumMode" Alignment="Center" TypographyId="Mode">
+        <Translation Language="GB">ABC</Translation>
+      </Text>
+      <Text Id="EnteredText" Alignment="Center" TypographyId="Display">
+        <Translation Language="GB">&lt;placeholder&gt;</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_VMC6" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Protocol :</Translation>
+      </Text>
+      <Text Id="__SingleUse_RTEO" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Logical@ :</Translation>
+      </Text>
+      <Text Id="__SingleUse_Q6S2" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">IP@ :</Translation>
+      </Text>
+      <Text Id="__SingleUse_CY30" Alignment="Left" TypographyId="ACTIAFontT">
+        <Translation Language="GB">Supervision</Translation>
+      </Text>
+      <Text Id="__SingleUse_6S7W" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Response :</Translation>
+      </Text>
+      <Text Id="__SingleUse_ERER" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Data :</Translation>
+      </Text>
+      <Text Id="__SingleUse_MHAG" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="T_NUMMODE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Texte 3</Translation>
+      </Text>
+      <Text Id="T_ALPHAMODE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Texte 2</Translation>
+      </Text>
+      <Text Id="T_ENTEREDTEXT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JMZ9" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7J0A" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_V6UV" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_2UMP" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Compte supprimé</Translation>
+      </Text>
+      <Text Id="__SingleUse_YU9F" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Annulé</Translation>
+      </Text>
+      <Text Id="__SingleUse_8SOL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Prénom</Translation>
+      </Text>
+      <Text Id="__SingleUse_27DZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Nom</Translation>
+      </Text>
+      <Text Id="__SingleUse_WHED" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">CIN</Translation>
+      </Text>
+      <Text Id="__SingleUse_TWFP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">formulaire à remplir</Translation>
+      </Text>
+      <Text Id="__SingleUse_YTIR" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Confirmé</Translation>
+      </Text>
+      <Text Id="__SingleUse_4179" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Les données que tu as envoyées ont &#10;été correctement transmises.</Translation>
+      </Text>
+      <Text Id="__SingleUse_IP_LABEL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Send_Data :</Translation>
+      </Text>
+      <Text Id="__SingleUse_LOGICAL_LABEL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Supervision :</Translation>
+      </Text>
+      <Text Id="__SingleUse_IPV4" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">IPv4</Translation>
+      </Text>
+      <Text Id="__SingleUse_IPV6" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">IPv6</Translation>
+      </Text>
+      <Text Id="__SingleUse_SEND_REQ" Alignment="Center" TypographyId="Button">
+        <Translation Language="GB">Send Requests</Translation>
+      </Text>
+      <Text Id="__SingleUse_SEND_DATA" Alignment="Center" TypographyId="Button">
+        <Translation Language="GB">Send Data</Translation>
+      </Text>
+      <Text Id="__SingleUse_SERVICE_LABEL" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Service :</Translation>
+      </Text>
+      <Text Id="__SingleUse_DATA_LABEL" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Data :</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_IP" Alignment="Center" TypographyId="ACTIAFront">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_LOGICAL" Alignment="Center" TypographyId="ACTIAFront">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_SERVICE" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_DATA" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_S7_1" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAL_S7_2" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ADR_IP" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Adresse IP :</Translation>
+      </Text>
+      <Text Id="__SingleUse_ADR_LOG" Alignment="Left" TypographyId="ACTIAFront">
+        <Translation Language="GB">Adresse Logique :</Translation>
+      </Text>
+      <Text Id="__SingleUse_DATA_SENT" Alignment="Center" TypographyId="ACTIAFront">
+        <Translation Language="GB">Data sent successfully</Translation>
+      </Text>
+      <Text Id="__SingleUse_BACK" Alignment="Center" TypographyId="Button">
+        <Translation Language="GB">Back</Translation>
+      </Text>
+      <Text Id="__SingleUse_SEND_REQUESTS_TITLE" Alignment="Left" TypographyId="ACTIAFontT">
+        <Translation Language="GB">Send_Data</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdanab.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0x20-0x7E" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Button" Font="verdanab.ttf" Size="14" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Display" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="!”&quot;#*%&amp;()'$+-@_, .:;?/~±×÷•º`´{}©£€^®¥_=[]¡¢|\¿&gt;&lt;" WildcardCharacterRanges="a-z,A-Z,0-9" />
+    <Typography Id="Keyboard" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="!”&quot;#*%&amp;()'$+-@_, .:;?/~±×÷•º`´{}©£€^®¥_=[]¡¢|\¿&gt;&lt;" WildcardCharacterRanges="a-z,A-Z,0-9" />
+    <Typography Id="Mode" Font="UrdType.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="ACTIAFontT" Font="ARLRDBD.TTF" Size="20" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="?" />
+    <Typography Id="ACTIAFront" Font="ARLRDBD.TTF" Size="14" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="?" WildcardCharacters="0123456789.:ABCDEF_" />
+  </Typographies>
+</TextDatabase>

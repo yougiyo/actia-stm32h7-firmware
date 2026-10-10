@@ -1,0 +1,2 @@
+If you want it to work, you need both serial ports to be open—the ESP32’s and the FTDI’s. I’m not sure why, though.
+ 
