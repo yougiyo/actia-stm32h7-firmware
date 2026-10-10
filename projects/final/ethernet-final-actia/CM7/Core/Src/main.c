@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "mongoose.h"
+#include "app_protocol.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -153,20 +154,20 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
   if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK) return;
 
   uint32_t value = (s_pending_sensor == 1) ? sensor1_value : sensor2_value;
+  app_response_status_t status = app_protocol_validate_response(
+      RxHeader.Identifier, RxHeader.DataLength, RxData, s_pending_sensor, value);
 
-  if (RxHeader.Identifier == 0x321 && RxHeader.DataLength == FDCAN_DLC_BYTES_4 &&
-      RxData[0] == 0xDE && RxData[1] == 0xAD && RxData[2] == 0xBE && RxData[3] == 0xEF) {
-    if (value > 100) {
-      uint8_t err[4] = {0, 0, 0, (uint8_t) value};
-      CAN_SendToPC(0x1FF, err);   /* extra CAN alert: threshold exceeded */
-      snprintf(s_can_reply_msg, sizeof(s_can_reply_msg),
-               "ERROR sensor%d=%lu\n", s_pending_sensor, (unsigned long) value);
-    } else {
-      snprintf(s_can_reply_msg, sizeof(s_can_reply_msg),
-               "OK sensor%d=%lu\n", s_pending_sensor, (unsigned long) value);
-    }
+  if (status == APP_RESPONSE_THRESHOLD_EXCEEDED) {
+    uint8_t err[4] = {0, 0, 0, (uint8_t) value};
+    CAN_SendToPC(APP_CAN_ALERT_ID, err);
+    snprintf(s_can_reply_msg, sizeof(s_can_reply_msg),
+             "ERROR sensor%d=%lu\n", s_pending_sensor, (unsigned long) value);
+  } else if (status == APP_RESPONSE_OK) {
+    snprintf(s_can_reply_msg, sizeof(s_can_reply_msg),
+             "OK sensor%d=%lu\n", s_pending_sensor, (unsigned long) value);
   } else {
-    snprintf(s_can_reply_msg, sizeof(s_can_reply_msg), "ERROR sensor%d\n", s_pending_sensor);
+    snprintf(s_can_reply_msg, sizeof(s_can_reply_msg),
+             "ERROR sensor%d\n", s_pending_sensor);
   }
 
   s_can_reply_ready = 1;
@@ -179,18 +180,16 @@ static void ev_handler(struct mg_connection *c, int ev, void *ev_data) {
   if (ev == MG_EV_READ) {
     MG_INFO(("Received: %.*s", (int) c->recv.len, c->recv.buf));
 
-    if (c->recv.len == 12 && memcmp(c->recv.buf, "logical=0001", 12) == 0) {
+    uint8_t sensor = 0;
+    uint32_t can_id = 0;
+    if (app_protocol_parse_request((const uint8_t *) c->recv.buf, c->recv.len,
+                                   &sensor, &can_id)) {
       s_udp_conn       = c;
       s_pending_addr   = c->rem;   /* remember who sent it, for UDP reply */
-      s_pending_sensor = 1;
-      uint8_t d[4] = {0, 0, 0, (uint8_t) sensor1_value};
-      CAN_SendToPC(0x123, d);
-    } else if (c->recv.len == 12 && memcmp(c->recv.buf, "logical=0002", 4) == 0) {
-      s_udp_conn       = c;
-      s_pending_addr   = c->rem;
-      s_pending_sensor = 2;
-      uint8_t d[4] = {0, 0, 0, (uint8_t) sensor2_value};
-      CAN_SendToPC(0x124, d);
+      s_pending_sensor = sensor;
+      uint32_t value = (sensor == 1) ? sensor1_value : sensor2_value;
+      uint8_t d[4] = {0, 0, 0, (uint8_t) value};
+      CAN_SendToPC(can_id, d);
     }
 
     mg_iobuf_del(&c->recv, 0, c->recv.len);

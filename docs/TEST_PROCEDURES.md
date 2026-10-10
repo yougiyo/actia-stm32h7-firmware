@@ -63,6 +63,30 @@ The response-validation frame currently uses standard CAN identifier `0x321`
 and the four-byte payload `DE AD BE EF`. Values above the configured threshold
 produce an error response and an additional CAN alert on identifier `0x1FF`.
 
+## Host unit-test scenario matrix
+
+The pure UDP/CAN protocol rules are covered by
+[`tests/app_protocol_test.c`](../tests/app_protocol_test.c). The suite covers:
+
+- Exact requests `logical=0001` and `logical=0002`, including CAN IDs `0x123`
+  and `0x124`.
+- Rejection of unknown request values, short requests, long requests, and null
+  parser arguments.
+- Valid response frames at sensor values `0` and `100` (success), and at `101`
+  (threshold exceeded).
+- Rejection of the wrong CAN ID, every incorrect data length, each incorrect
+  payload byte, null response data, and unknown sensor numbers.
+
+Run it from the repository root with a host C compiler:
+
+```text
+gcc -std=c11 -Wall -Wextra -Werror ^
+  -I projects\final\ethernet-final-actia\CM7\Core\Inc ^
+  projects\final\ethernet-final-actia\CM7\Core\Src\app_protocol.c ^
+  tests\app_protocol_test.c -o app_protocol_test.exe
+app_protocol_test.exe
+```
+
 ## Evidence and failure reporting
 
 For each failed test, record:
