@@ -2,7 +2,7 @@
 
 These procedures provide repeatable bench checks for the two final projects.
 They are intentionally separate from the firmware source and from captured
-evidence in [`stage_doc/`](../stage_doc/).
+evidence in [`test-evidence/network/`](../test-evidence/network/).
 
 ## Before testing
 
@@ -34,7 +34,7 @@ evidence in [`stage_doc/`](../stage_doc/).
 4. Confirm link activity and monitor UART1 diagnostics.
 5. Capture traffic with Wireshark or an equivalent tool.
 6. Verify that packets are exchanged only with the intended test host.
-7. Store the capture in `stage_doc/` with a descriptive filename.
+7. Store the capture in `test-evidence/network/` with a descriptive filename.
 
 The M7 application currently listens through the Mongoose network integration.
 Use the application source and test-client configuration to confirm the
@@ -76,6 +76,6 @@ For each failed test, record:
 - Expected result and observed result.
 - Capture or screenshot filename.
 
-Keep packet captures and screenshots under `stage_doc/`. Do not add generated
+Keep packet captures and screenshots under `test-evidence/network/`. Do not add generated
 build output, credentials, or unrelated personal workstation files to the
 repository.

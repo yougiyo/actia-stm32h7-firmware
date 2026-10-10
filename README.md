@@ -4,22 +4,18 @@ This repository contains the Actia embedded-systems workbench for STM32H7
 microcontrollers. It includes two deliverables and a set of supporting
 experiments, staging projects, and network-test evidence.
 
-The repository is intentionally kept in its existing filesystem layout. STM32
-CubeIDE, STM32CubeMX, TouchGFX, Keil MDK, and IAR project files contain
-relative paths and workspace metadata; moving those files without regenerating
-the projects can make an otherwise working firmware project fail to open or
-build.
+Each firmware project is kept together as a self-contained unit. STM32CubeIDE,
+STM32CubeMX, TouchGFX, Keil MDK, and IAR project files contain relative paths,
+so the files inside an individual project directory should not be split apart.
 
 ## Deliverables
 
 | Deliverable | Location | Hardware/software focus |
 |---|---|---|
-| PFA STM32H735 graphical application | [`PFA_STM32H735-main/`](./PFA_STM32H735-main/) | STM32H735G-DK, TouchGFX, FreeRTOS, external memory, display pipeline, and LwIP |
-| Final Actia Ethernet/CAN application | [`ethernet/Final_Actia/`](./ethernet/Final_Actia/) | Dual-core STM32H747, Ethernet over RMII, Mongoose UDP handling, and FDCAN |
+| PFA STM32H735 graphical application | [`projects/final/pfa-stm32h735/`](./projects/final/pfa-stm32h735/) | STM32H735G-DK, TouchGFX, FreeRTOS, external memory, display pipeline, and LwIP |
+| Final Actia Ethernet/CAN application | [`projects/final/ethernet-final-actia/`](./projects/final/ethernet-final-actia/) | Dual-core STM32H747, Ethernet over RMII, Mongoose UDP handling, and FDCAN |
 
-The folder names above are the canonical locations of the final projects.
-Other similarly named folders are experiments or intermediate work and should
-not be confused with the deliverables.
+The paths above are the canonical locations of the final projects.
 
 ## Repository map
 
@@ -29,14 +25,15 @@ ALL_Actia_prject/
 ├── docs/
 │   ├── PROJECT_STRUCTURE.md
 │   └── DEVELOPMENT_WORKFLOW.md
-├── PFA_STM32H735-main/          # Final H735 TouchGFX application
-├── ethernet/
-│   ├── Final_Actia/             # Final H747 Ethernet/CAN application
-│   ├── 000Ethernet_Mongoose/    # Ethernet/Mongoose experiment
-│   ├── 001Test/                 # Ethernet test project
-│   └── ...                      # Other Ethernet experiments
-├── actia_stage/                 # Staging and exploratory CubeIDE projects
-└── stage_doc/                   # Packet captures and test evidence
+├── projects/
+│   ├── final/
+│   │   ├── pfa-stm32h735/       # Final H735 TouchGFX application
+│   │   └── ethernet-final-actia/ # Final H747 Ethernet/CAN application
+│   └── experiments/
+│       ├── actia-stage/         # Staging and exploratory CubeIDE projects
+│       └── ethernet/            # Ethernet, CAN, and Mongoose experiments
+└── test-evidence/
+    └── network/                 # Packet captures and test screenshots
 ```
 
 The detailed ownership of each directory is documented in
@@ -44,7 +41,7 @@ The detailed ownership of each directory is documented in
 
 ## Final project: PFA STM32H735
 
-Open [`PFA_STM32H735-main/PFA_STM32H735.ioc`](./PFA_STM32H735-main/PFA_STM32H735.ioc)
+Open [`projects/final/pfa-stm32h735/PFA_STM32H735.ioc`](./projects/final/pfa-stm32h735/PFA_STM32H735.ioc)
 with STM32CubeMX or STM32CubeIDE. The project targets the STM32H735G-DK and
 provides:
 
@@ -67,12 +64,12 @@ Important subdirectories are:
 - `STM32CubeIDE/`, `gcc/`, `MDK-ARM/`, and `EWARM/`: toolchain-specific
   project/build files.
 
-See [`PFA_STM32H735-main/readme.md`](./PFA_STM32H735-main/readme.md) for the
+See [`projects/final/pfa-stm32h735/readme.md`](./projects/final/pfa-stm32h735/readme.md) for the
 project-specific board and display notes.
 
 ## Final project: Ethernet and CAN
 
-Open [`ethernet/Final_Actia/Final_Actia.ioc`](./ethernet/Final_Actia/Final_Actia.ioc)
+Open [`projects/final/ethernet-final-actia/Final_Actia.ioc`](./projects/final/ethernet-final-actia/Final_Actia.ioc)
 with STM32CubeIDE or STM32CubeMX. This is a dual-core STM32H747 project:
 
 - Cortex-M7 hosts the main Ethernet application.
@@ -98,7 +95,7 @@ The core-specific boundaries are deliberately preserved:
 4. Build and flash from the IDE.
 5. Keep generated output (`Debug/`, `Release/`, simulator output, and map
    files) associated with the project that produced it.
-6. Record network/CAN test evidence in `stage_doc/` without mixing it into
+6. Record network/CAN test evidence in `test-evidence/network/` without mixing it into
    firmware source directories.
 
 Detailed build and debugging guidance is in
@@ -117,8 +114,8 @@ removed or rewritten. Treat them according to their owner:
 - Do not hand-edit linker output, map files, object files, dependency files,
   or simulator binaries.
 
-## Scope of this cleanup
+## Scope of the organization
 
-This cleanup is organizational and documentation-only. No firmware source,
-header, linker script, CubeMX configuration, IDE project file, generated
-artifact, or protocol behavior has been changed.
+The repository hierarchy separates final projects, experiments, documentation,
+and test evidence. Each firmware project remains internally intact; only its
+repository-level location changed.

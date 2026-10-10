@@ -15,7 +15,7 @@ being mistaken for the final firmware.
 
 ## Deliverables
 
-### `PFA_STM32H735-main/`
+### `projects/final/pfa-stm32h735/`
 
 Single-core STM32H735G-DK TouchGFX application.
 
@@ -38,7 +38,7 @@ Project-level files include `PFA_STM32H735.ioc` for CubeMX configuration,
 `STM32H735XG_FLASH.ld` for the GCC memory layout, `readme.md` for
 project-specific notes, and `changelog.txt` for project history.
 
-### `ethernet/Final_Actia/`
+### `projects/final/ethernet-final-actia/`
 
 Dual-core STM32H747 Ethernet/CAN application.
 
@@ -52,19 +52,18 @@ Dual-core STM32H747 Ethernet/CAN application.
 
 ## Experiments and staging
 
-### `ethernet/`
+### `projects/experiments/ethernet/`
 
-Contains the final Ethernet/CAN project plus earlier Ethernet, Mongoose, CAN,
-and STM32H7 experiments. Examples include `000Ethernet_Mongoose`,
-`001Test`, `STM32H7_ETH_CAN`, and `STM32H735_ETH_CAN`.
+Contains earlier Ethernet, Mongoose, CAN, and STM32H7 experiments. The final
+Ethernet/CAN project is kept separately under `projects/final/`.
 
-### `actia_stage/`
+### `projects/experiments/actia-stage/`
 
 Contains exploratory CubeIDE projects for graphics, Ethernet, CAN, UART, Wi-Fi,
 and combined peripheral tests. These projects are useful for reference and
 hardware bring-up, but are not the final deliverables.
 
-### `stage_doc/`
+### `test-evidence/network/`
 
 Contains packet captures and screenshots from TCP/Ethernet validation. These
 files are evidence, not firmware inputs.
@@ -76,5 +75,6 @@ files are evidence, not firmware inputs.
 - Regenerate peripheral setup from the owning `.ioc` file.
 - Do not copy generated code between projects unless the owning project and
   toolchain are also updated.
-- Do not rename or move project subdirectories without updating the associated
-  IDE metadata and validating a clean build.
+- Do not split the contents of a project directory.
+- If a project directory is moved again, update repository documentation and
+  validate that the IDE can reopen the `.ioc` and build metadata.

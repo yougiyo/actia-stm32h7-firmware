@@ -19,7 +19,7 @@ schematic or safety instructions.
 
 Project entry point:
 
-[`PFA_STM32H735-main/PFA_STM32H735.ioc`](../PFA_STM32H735-main/PFA_STM32H735.ioc)
+[`projects/final/pfa-stm32h735/PFA_STM32H735.ioc`](../projects/final/pfa-stm32h735/PFA_STM32H735.ioc)
 
 The project is configured for:
 
@@ -46,7 +46,7 @@ confirming the instrument ground and voltage levels are appropriate.
 
 Project entry point:
 
-[`ethernet/Final_Actia/Final_Actia.ioc`](../ethernet/Final_Actia/Final_Actia.ioc)
+[`projects/final/ethernet-final-actia/Final_Actia.ioc`](../projects/final/ethernet-final-actia/Final_Actia.ioc)
 
 The project uses:
 

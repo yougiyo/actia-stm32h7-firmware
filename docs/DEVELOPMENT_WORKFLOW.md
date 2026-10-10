@@ -4,11 +4,11 @@
 
 Use the project-specific `.ioc` file as the source of truth:
 
-- Graphics work: `PFA_STM32H735-main/PFA_STM32H735.ioc`
-- Ethernet/CAN work: `ethernet/Final_Actia/Final_Actia.ioc`
+- Graphics work: `projects/final/pfa-stm32h735/PFA_STM32H735.ioc`
+- Ethernet/CAN work: `projects/final/ethernet-final-actia/Final_Actia.ioc`
 
-The similarly named projects under `ethernet/` and `actia_stage/` are
-experiments. Verify the project name, MCU, and core before flashing hardware.
+The projects under `projects/experiments/` are experiments. Verify the project
+name, MCU, and core before flashing hardware.
 
 ## STM32H735 workflow
 
@@ -22,7 +22,7 @@ experiments. Verify the project name, MCU, and core before flashing hardware.
 
 ## Ethernet/CAN workflow
 
-1. Open `ethernet/Final_Actia/Final_Actia.ioc`.
+1. Open `projects/final/ethernet-final-actia/Final_Actia.ioc`.
 2. Confirm the dual-core context and select the Cortex-M7 or Cortex-M4 project
    as appropriate.
 3. Build the core projects using the STM32CubeIDE metadata in `CM7/` and
@@ -30,7 +30,8 @@ experiments. Verify the project name, MCU, and core before flashing hardware.
 4. Configure the test PC for the firmware's Ethernet subnet before sending UDP
    traffic.
 5. Observe UART diagnostics and CAN traffic independently when troubleshooting.
-6. Save repeatable packet captures and screenshots under `stage_doc/`.
+6. Save repeatable packet captures and screenshots under
+   `test-evidence/network/`.
 
 ## Review checklist
 
